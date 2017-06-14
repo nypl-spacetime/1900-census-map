@@ -4,7 +4,7 @@ var edStyle = {
   color: '#0078f0',
   weight: 5,
   opacity: 0.65,
-  fill: 'none'
+  fillOpacity: 0.08
 }
 
 function pageToArchiveOrg (reel, page) {
