@@ -11,14 +11,18 @@ function pageToArchiveOrg (reel, page) {
   return 'https://archive.org/stream/12thcensusofpopu' + reel + 'unit#page/n' + page + '/mode/1up'
 }
 
-var map = L.map('map').setView([40.72050, -73.98529], 17)
+var map = L.map('map', {
+  maxZoom: 19
+}).setView([40.72050, -73.98529], 17)
 
 L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-  maxZoom: 18,
+  maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
 }).addTo(map)
 
-L.tileLayer('http://maps.nypl.org/warper/layers/tile/906/{z}/{x}/{y}.png').addTo(map)
+var tileLayer = L.tileLayer('http://maps.nypl.org/warper/layers/tile/906/{z}/{x}/{y}.png', {
+  maxZoom: 19
+}).addTo(map)
 
 function onEachFeature(feature, layer) {
   var props = feature.properties
@@ -57,4 +61,8 @@ d3.json('census-links.json', function (censusLinks) {
       onEachFeature: onEachFeature
     }).addTo(map)
   })
+})
+
+d3.select('#slider').on('input', function () {
+  tileLayer.setOpacity(this.value / 100)
 })

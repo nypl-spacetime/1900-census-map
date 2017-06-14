@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="css/leaflet.css" />
   </head>
   <body>
-    <div id="map">
+    <div id="map-container" class="hidden">
+      <div id="map">
+      </div>
+      <div id="slider-container">
+        <label>
+          <span>Opacity:</span>
+          <input id="slider" type="range" min="0" max="100" step="1" value="100" />
+        </label>
+      </div>
     </div>
     <script src="js/census-map.js"></script>
   </body>
