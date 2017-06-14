@@ -29,8 +29,7 @@ function onEachFeature(feature, layer) {
   var html = [
     '<h2>District ' + props.name + '</h2>',
     '<p>Reel: ' + props.reel + '</p>',
-    '<p>Pages: <a href="' + pageToArchiveOrg(props.reel, props.pages[0]) + '">' + props.pages[0] + '</a> to <a href="' + pageToArchiveOrg(props.reel, props.pages[1]) + '">' + props.pages[1] + '</a></p>',
-    '<p><a href="' + props.familySearch + '">Open in FamilySearch</a></p>'
+    '<p>Pages: <a href="' + pageToArchiveOrg(props.reel, props.pages[0]) + '">' + props.pages[0] + '</a> to <a href="' + pageToArchiveOrg(props.reel, props.pages[1]) + '">' + props.pages[1] + '</a></p>'
   ]
   layer.bindPopup(html.join('\n'))
 }
